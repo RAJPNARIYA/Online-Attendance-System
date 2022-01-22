@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,700;1,500&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 70%;
+  overflow-x: hidden;
+}
+
+header {
+  top: 0;
+  bottom: 0;
+}
+
+body {
+  background-image: url("images/background\ 1.png");
+}
+
+header img {
+  width: 200px;
+  height: 50px;
+}
+
+header h1 {
+  font-size: 5rem;
+  text-align: center;
+  font-weight: bolder;
+  margin: 5rem 0;
+}
+
+.details {
+  width: 800px;
+  margin-left: 600px;
+  background-color: rgba(0, 0, 0, 0.204);
+  box-shadow: 32px 32px 32px 32px rgba(0, 0, 0, 0.449);
+  align-items: center;
+}
+
+.details form {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.details form input {
+  font-size: 3rem;
+  border-radius: 0.5rem;
+  width: 35%;
+  margin: 2rem;
+}
+
+.details form input:focus {
+  background-color: rgba(137, 43, 226, 0.51);
+}
+
+.details form input.btn {
+  width: 22%;
+  cursor: pointer;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.details form input.btn:hover {
+  box-shadow: 0 5px 25px;
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.136);
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 2rem;
+  }
+  section {
+    padding: 2rem;
+  }
+  .details {
+    width: 450px;
+    margin-left: 200px;
+  }
+
+  .details form {
+    font-size: 2rem;
+  }
+
+  .details form input {
+    width: 20%;
+    margin: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+  .details {
+    width: 250px;
+    margin-left: 100px;
+  }
+  header h1 {
+    font-size: 3rem;
+  }
+  .details form {
+    font-size: 2rem;
+  }
+}
