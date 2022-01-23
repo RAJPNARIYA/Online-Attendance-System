@@ -52,14 +52,26 @@ header h1 {
 }
 
 .details form input {
-  font-size: 3rem;
+  font-size: 2rem;
   border-radius: 0.5rem;
   width: 35%;
   margin: 2rem;
 }
 
+.details form p {
+  font-size: 1.5rem;
+}
+
+.details form p a {
+  text-decoration: underline;
+}
+
+.details form p a:hover {
+  color: red;
+}
+
 .details form input:focus {
-  background-color: rgba(137, 43, 226, 0.51);
+  background-color: rgba(137, 43, 226, 0.238);
 }
 
 .details form input.btn {
