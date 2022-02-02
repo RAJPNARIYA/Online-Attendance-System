@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,700;1,500&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -9,6 +9,11 @@
   text-transform: capitalize;
   text-decoration: none;
   transition: all 0.2s linear;
+}
+
+body {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
 }
 
 html {
@@ -57,22 +62,23 @@ header {
   height: 100px;
 }
 
-header .navbar a {
+header .navbars a {
   font-size: 2.5rem;
   font-weight: 600;
   margin: 0 3rem;
   color: black;
 }
 
-header .navbar a:hover {
+header .navbars a:hover {
   color: blue;
+  text-decoration: none;
 }
 
 header .logo img {
   width: 75%;
   height: 100%;
 }
-#menu-bar {
+#menu-bars {
   border: 0.1rem solid #fff;
   border-radius: 0.5rem;
   font-size: 3rem;
@@ -81,7 +87,7 @@ header .logo img {
   display: none;
 }
 
-.show-modal {
+.show-modals {
   font-size: 2rem;
   font-weight: 600;
   padding: 1.75rem 3.5rem;
@@ -92,11 +98,11 @@ header .logo img {
   cursor: pointer;
 }
 
-.show-modal:focus {
+.show-modals:focus {
   color: blue;
 }
 
-.close-modal {
+.close-modals {
   position: absolute;
   top: 1.2rem;
   right: 2rem;
@@ -107,11 +113,11 @@ header .logo img {
   background: none;
 }
 
-.hidden {
+.hiddens {
   display: none;
 }
 
-.modal {
+.modals {
   position: absolute;
   font-size: 3rem;
   top: 16rem;
@@ -123,18 +129,19 @@ header .logo img {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  z-index: 1;
 }
 
-.modal a {
+.modals a {
   color: #333;
+  text-decoration: none;
 }
 
-.modal a:hover {
+.modals a:hover {
   color: red;
 }
 
-.overlay {
+.overlays {
   position: absolute;
   top: 0;
   left: 0;
@@ -147,39 +154,18 @@ section {
   padding: 2rem 9%;
 }
 
-.home {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
-  position: relative;
-  z-index: 0;
+.carousel-caption {
+  color: black;
 }
 
-.home .content {
-  text-align: center;
-}
-
-.home .content h3 {
+.carousel-caption h1 {
   font-size: 5rem;
-  text-transform: uppercase;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
+  font-weight: 900;
 }
 
-.home .content p {
-  font-size: 3rem;
-  padding: 0.5rem 0;
-}
-
-.home .img-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.carousel-caption p {
+  font-size: 2.5rem;
+  font-weight: 500;
 }
 
 .pra {
@@ -307,7 +293,7 @@ section {
     top: 100%;
     right: 0;
     left: 0;
-    background: rgba(226, 16, 226, 0.306);
+    background: rgba(8, 8, 8, 0.748);
     border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
     padding: 1rem 2rem;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);

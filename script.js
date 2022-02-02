@@ -1,11 +1,11 @@
 "use strict";
 
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
-const btnOpenModal = document.querySelector(".show-modal");
-let navbar = document.querySelector(".navbar");
-let menu = document.querySelector("#menu-bar");
+const modal = document.querySelector(".modals");
+const overlay = document.querySelector(".overlays");
+const btnCloseModal = document.querySelector(".close-modals");
+const btnOpenModal = document.querySelector(".show-modals");
+let navbar = document.querySelector(".navbars");
+let menu = document.querySelector("#menu-bars");
 
 window.onscroll = () => {
   menu.classList.remove("fa-times");
@@ -13,20 +13,20 @@ window.onscroll = () => {
 };
 
 btnOpenModal.addEventListener("click", function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
+  modal.classList.remove("hiddens");
+  overlay.classList.remove("hiddens");
 });
 
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
+const closeModals = function () {
+  modal.classList.add("hiddens");
+  overlay.classList.add("hiddens");
 };
 
-overlay.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModals);
 
 document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModal();
+  if (e.key === "Escape" && !modal.classList.contains("hiddens")) {
+    closeModals();
   }
 });
 
