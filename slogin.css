@@ -19,10 +19,13 @@ html {
 header {
   top: 0;
   bottom: 0;
+  color: white;
+  text-decoration: underline;
 }
 
 body {
-  background-image: url("images/background\ 1.png");
+  background-image: url("images/bghero-homepage.jpg");
+  /* background-repeat: repeat-x; */
 }
 
 header img {
@@ -39,10 +42,11 @@ header h1 {
 
 .details {
   width: 800px;
-  margin-left: 600px;
-  background-color: rgba(0, 0, 0, 0.204);
+  margin-left: 550px;
+  /* background-color: rgba(0, 0, 0, 0.204);
   box-shadow: 32px 32px 32px 32px rgba(0, 0, 0, 0.449);
-  align-items: center;
+  align-items: center; */
+  color: white;
 }
 
 .details form {
@@ -64,6 +68,7 @@ header h1 {
 
 .details form p a {
   text-decoration: underline;
+  color: rgba(181, 115, 243, 0.726);
 }
 
 .details form p a:hover {
@@ -71,20 +76,20 @@ header h1 {
 }
 
 .details form input:focus {
-  background-color: rgba(137, 43, 226, 0.238);
+  background-color: rgba(181, 115, 243, 0.726);
 }
 
 .details form input.btn {
   width: 22%;
   cursor: pointer;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  /* box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); */
 }
-
+/* 
 .details form input.btn:hover {
   box-shadow: 0 5px 25px;
   backdrop-filter: blur(15px);
   background-color: rgba(0, 0, 0, 0.136);
-}
+} */
 
 @media (max-width: 1200px) {
   html {
