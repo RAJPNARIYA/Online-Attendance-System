@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+}
+
+.nav {
+  width: 15%;
+  min-height: 900px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.801);
+  color: white;
+  float: left;
+}
+
+.nav i {
+  padding-left: 15px;
+  padding-bottom: 200px;
+}
+
+.nav ul {
+  margin: 10px;
+}
+
+.nav li {
+  list-style: none;
+  line-height: 2.5;
+  text-align: center;
+  cursor: pointer;
+}
+
+.nav li:hover {
+  color: blue;
+}
+
+.nav li.active {
+  color: red;
+  text-decoration: underline;
+}
+
+.content {
+  width: 85%;
+  min-height: 900px;
+  height: 100%;
+  background-color: #ffffffff;
+  height: 100%;
+  float: left;
+}
+
+.content h1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.content .margin {
+  margin-left: 10%;
+}
+
+.content .margin button {
+  margin-top: 20%;
+  border: 0;
+}
+
+.content .margin button.btn {
+  width: 180px;
+  height: 100px;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #89abe3ff;
+  cursor: pointer;
+}
+
+.content .margin button.btn:hover {
+  box-shadow: rgba(61, 61, 61, 0.863) 2px 2px 2px 2px;
+}
+
+@media (max-width: 991px) {
+  body {
+    font-size: 2rem;
+  }
+
+  .nav {
+    width: 30%;
+  }
+
+  .content {
+    width: 70%;
+  }
+
+  .nav img {
+    height: 50px;
+    width: 130px;
+  }
+} ;
