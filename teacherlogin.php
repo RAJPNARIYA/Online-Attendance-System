@@ -19,7 +19,8 @@ function checkInput($input) {
     $input = stripslashes($input);
     $input = htmlspecialchars($input);
     return $input;
-}    
+}
+
 ?>
 
 
@@ -49,18 +50,19 @@ function checkInput($input) {
         <h1>Teacher LogIn</h1>
       </header>
       <div class="details">
-        <form method="POST">
+        <form method="POST" action="check.php">
           E-mail &nbsp;   :
-          <input type="email" placeholder=" Enter email" name="email" value="<?php echo $email; ?>"  />
+          <input type="email" placeholder=" Enter email" name="email"   />
           <?php echo $emailErr; ?>
           <br />
           Password:
-          <input type="password" placeholder=" ********" name="pwd" value="<?php echo $pwd; ?>"  />
+          <input type="password" placeholder=" ********" name="pwd"  />
           <?php echo $pwdErr; ?>
           <br />
         
           <p><a href="forgot.html">forgot password</a></p>
-          <p>I don't have Account?<a href="teachersign.html">SignIn</a><br>
+          <p>I don't have Account?<a href="teachersign.php">SignIn</a><br>
       <input class="btn" type="submit" value="LogIn" go="index.html" name="Submit" />
+      <a href="index.html"><input class="btn" type="button" value="<< Back"/></a>
   </body>
 </html>

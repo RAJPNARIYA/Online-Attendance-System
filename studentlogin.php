@@ -26,7 +26,7 @@ function checkInput($input) {
     $input = stripslashes($input);
     $input = htmlspecialchars($input);
     return $input;
-}    
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,13 +55,13 @@ font-size: 30px;
       <h1>Student LogIn</h1>
     </header>
     <div class="details">
-      <form method="POST">
+      <form method="POST" action="scheck.php">
         First Name:
-        <input type="text" placeholder=" Enter First Name" name="name" value="<?php echo $name; ?>" />
+        <input type="text" placeholder=" Enter First Name" name="name"/>
         <?php echo $nameErr; ?>
         <br />
         Last Name:
-        <input type="text" placeholder=" Enter Last Name" name="lname" value="<?php echo $lname; ?>"/>
+        <input type="text" placeholder=" Enter Last Name" name="lname"/>
         <?php echo $lnameErr; ?>
 
         <br />
@@ -69,11 +69,10 @@ font-size: 30px;
         <input type="number" placeholder="Enter Roll No." name="rno" require />
 
         <br />
-        Sub Code &nbsp;:
-        <input type="number" placeholder="Subject Code" name="sub" require/>
 
         <br />
         <input class="btn" type="submit" value="Get Result" name="Submit" />
+        <a href="index.html"><input class="btn" type="button" value="<< Back"/></a>
       </form>
     </div>
   </body>

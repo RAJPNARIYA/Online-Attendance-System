@@ -1,17 +1,13 @@
-
 <?php
 $nameErr = "";
-$emailErr = "";
+$rnoErr = "";
 $pwdErr="";
-$repwdErr="";
 $lnameErr="";
 if(isset($_POST["Submit"])) {
     // Set form variables
     $name= checkInput($_POST["name"]);
     $lname= checkInput($_POST["lname"]);
-    $email= checkInput($_POST["email"]);
-    $pwd= checkInput($_POST["password"]);
-    $repwd= checkInput($_POST["repassword"]);
+    $rno= checkInput($_POST["rno"]);
     
     if(!preg_match("/^[A-Za-z]{3,20}$/", $name)) {
         $nameErr = '<div class="error">Enter Your valid First Name. 
@@ -21,24 +17,6 @@ if(isset($_POST["Submit"])) {
         $lnameErr = '<div class="error">Enter Your valid Last Name.
         </div>';
     }
-    if (!preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/", $email)){
-        $emailErr = '<div class="error">
-                Email format is not valid.
-        </div>';
-    }
-    if(!preg_match("/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/", $pwd)) {
-        $pwdErr = '<div class="error">Enter valid password.
-        </div>';
-    }
-    if(!preg_match("/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/", $repwd)) {
-        $repwdErr = '<div class="error">Enter valid re entered password.
-        </div>';
-    }
-
-    if($pwd != $repwd) {
-        $repwd=  '<div class="error">Password and re-password not matched
-    </div>';
-        }
 }  
 function checkInput($input) {
     $input = trim($input);
@@ -51,14 +29,14 @@ $con = mysqli_connect("localhost","wt","wt","wt");
     if(mysqli_connect_errno()){
         echo "Failed to connect to MySql:" .mysqli_error();
     }
-    $newpwd=md5($_POST['password']);
-    $query="INSERT INTO teacher(t_name,t_lname,t_email,t_pwd) VALUES ('$_POST[name]','$_POST[lname]','$_POST[email]','$newpwd')";
+    $query="INSERT INTO student(s_name,s_lname,s_rno,sub,dept,sem,s_year) VALUES ('$_POST[name]','$_POST[lname]','$_POST[rno]','$_POST[sub]','$_POST[dept]','$_POST[sem]','$_POST[s_year]')";
     if(mysqli_query($con,$query)){
         echo "New Record Added";
     }else{
         echo "Faild";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +50,7 @@ $con = mysqli_connect("localhost","wt","wt","wt");
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 />
-<title>Teacher Sign</title>
+<title>Add Studnent</title>
 <style>
     .error {
 color: red;
@@ -84,42 +62,42 @@ font-size: 30px;
 <body>
 <header>
   <a href="#"><img src="images/Logo-eAttendance.png" alt="logo" /></a>
-  <h1>Teacher Sign</h1>
+  <h1>Add Student</h1>
 </header>
 <div class="details">
   <form
     method="post"
     name="form"
   >
-    First Name:
-    <input type="text" name="name" placeholder=" Enter First Name" "/>
+    Student Name:
+    <input type="text" name="name" placeholder=" Enter First Name"/>
     <?php echo $nameErr; ?>
     <br />
-    Last Name:
+    Student Last Name:
     <input type="text" name="lname" placeholder=" Enter Last Name"  />
     <?php echo $lnameErr; ?>
 
     <br />
-    Email &nbsp; &nbsp; &nbsp; &nbsp; :
-    <input type="email" name="email" placeholder="Email"  />
-    <?php echo $emailErr; ?>
+    Roll No. &nbsp; &nbsp; &nbsp; &nbsp; :
+    <input type="number" name="rno" placeholder="Roll No." />
+<br>
+Subject &nbsp; &nbsp; &nbsp; &nbsp; :
+    <input type="text" name="sub" placeholder="Subject" />
+<br>
+Department:
+    <input type="text" name="dept" placeholder="department" />
+<br>
+   
+Semester:
+    <input type="text" name="sem" placeholder="Semenster"  />
+<br>
 
-    <br />
-    Password &nbsp; &nbsp; :
-    <input type="password" name="password" placeholder="Password" />
-    <?php echo $pwdErr; ?>
-    <br />
-    Re-Password:
-    <input
-      type="password"
-      name="repassword"
-      placeholder="Confirm Password"
-    />
-    <?php echo $repwdErr; ?>
+Year:
+    <input type="text" name="s_year" placeholder="year"/>
+<br>
 
-    <br />
-    <input class="btn" type="submit" value="Sign In" name="Submit" />
-    <a href="teacherlogin.php"><input class="btn" type="button" value="<< Back"/></a>
+    <input class="btn" type="submit" value="Add" name="Submit" />
+    <a href="dashboard.php"><input class="btn" type="button" value="<< Back"/></a>
   </form>
 </div>
 </body>

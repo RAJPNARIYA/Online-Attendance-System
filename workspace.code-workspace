@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "D:\\College\\Sem 6\\WP\\Practical\\Online Attendance\\plugins"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Online Attendance"
+  }
+}

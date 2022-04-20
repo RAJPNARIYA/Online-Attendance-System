@@ -11,53 +11,14 @@ body {
   font-size: 2.5rem;
 }
 
-.box {
-  width: 100%;
-  height: 100%;
-  background-color: aqua;
-}
-
-.nav {
-  width: 15%;
-  min-height: 900px;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.801);
-  color: white;
-  float: left;
-}
-
-.nav i {
-  padding-left: 15px;
-  padding-bottom: 200px;
-}
-
-.nav ul {
-  margin: 10px;
-}
-
-.nav li {
-  list-style: none;
-  line-height: 2.5;
-  text-align: center;
-  cursor: pointer;
-}
-
-.nav li:hover {
-  color: blue;
-}
-
-.nav li.active {
-  color: red;
-  text-decoration: underline;
-}
-
 .content {
-  width: 85%;
+  width: 100%;
   min-height: 900px;
   height: 100%;
   background-color: #ffffffff;
   height: 100%;
   float: left;
+  margin-top: 50px;
 }
 
 .content h1 {
@@ -70,7 +31,7 @@ body {
 }
 
 .content .margin button {
-  margin-top: 20%;
+  margin-top: 10%;
   border: 0;
 }
 
@@ -81,6 +42,11 @@ body {
   font-size: 1rem;
   background-color: #89abe3ff;
   cursor: pointer;
+}
+
+table .tables {
+  margin-top: 50px;
+  border: 5px;
 }
 
 .content .margin button.btn:hover {
