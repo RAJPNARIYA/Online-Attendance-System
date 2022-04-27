@@ -22,6 +22,7 @@ const closeModals = function () {
   overlay.classList.add("hiddens");
 };
 
+// btnCloseModal.addEventListener("click", closeModals);
 overlay.addEventListener("click", closeModals);
 
 document.addEventListener("keydown", function (e) {

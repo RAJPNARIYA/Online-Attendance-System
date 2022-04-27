@@ -5,7 +5,7 @@
     $pwd = $_POST['pwd'];
     $email=$_POST["email"];
         if(mysqli_connect_errno()){
-            echo "Failed to connect to MySql:" .mysqli_error();
+            echo "Failed to connect to MySql:";
         }
         $query="SELECT * from teacher where t_email='$email'";
         

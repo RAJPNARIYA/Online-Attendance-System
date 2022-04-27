@@ -12,7 +12,7 @@ session_start();
 
   $con = mysqli_connect("localhost","wt","wt","wt");
   if(mysqli_connect_errno()){
-    echo "Failed to connect to MySql:" .mysqli_error();
+    echo "Failed to connect to MySql:";
 }
 //$rno="";
 //$rno=$_SESSION['s_rno'];
@@ -51,6 +51,7 @@ $dbsem=$row['sem'];
     <link rel="stylesheet" href="style.css" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="hstyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
@@ -83,15 +84,15 @@ $dbsem=$row['sem'];
       /></a>
 
       <nav class="navbars">
-        <a href="dashboard.html">Dashboard</a>
+        <a href="dashboard.php">Dashboard</a>
         <a href="#">Profile</a>
-        <a href="#"> Statistics</a>
         <a href="addstudent.php">Add Student</a>
+        <a href="message.php"> feedbacks</a>
       </nav>
 
       <form method="post">
 
-<input class="show-modals" type="submit" name="logout" value="LogOut">
+<input style="background-color: white; cursor: pointer; font-weight:600;"  type="submit" name="logout" value="LogOut">
 </form>
     </header>
     
@@ -99,21 +100,69 @@ $dbsem=$row['sem'];
         <h1><?php echo "Welcome ". $_SESSION['t_name'];  ?></h1>
 
         <div class="margin">
-          <button class="btn">
-            <h3>Subject name:WP<br />Time:7:30 to 8:25<br />Date:22/02/2022</h3>
-          </button>
-          <button class="btn">
+          <?php
+            $sql = "SELECT * FROM classes";
+            $result = mysqli_query($con, $sql);
+            
+            if (mysqli_num_rows($result) > 0) {
+              // output data of each row
+              while($row2 = mysqli_fetch_assoc($result)) {
+                ?>
+                <button class="btn">
+                    <h3>Subject Name:<?php echo $dbsubject=$row2['subjects']?><br>
+                    Time:<?php echo $dbtime=$row2['timess']?><br>to<?php echo $dbtime=$row2['timess']?><br>
+                    Date:<?php echo $dbdate=$row2['dates']?>
+                  </h3>
+                </button>
+            <?php  
+              }
+            }
+          ?>
+          <button class="btn show-modals">
             <h3>Add <br />New<br />class</h3>
           </button>
-          <table class="tables" cellspacing="5" border="2">
+          <div class="modals hiddens">
+      <!-- <button class="close-modals">&times;</button> -->
+      <h1>Add Class</h1>
+      <form method="POST" action="addclass.php">
+      <table style="margin-top: 50px; margin-left: auto; margin-right: auto;">
           <tr>
-          <th>Name</th>
-          <th>Last Name  </th>
-          <th>Roll No  </th> 
-          <th>Suject Name  </th>
-          <th>Department  </th>
-          <th>Semester  </th>
-          <th>Year </th>
+          <td>Subject name:</td>
+          <td><input type="text" placeholder="Subject name" name="subject"></td>
+          
+         
+          </tr>
+
+          <tr>
+          <td>Time:</td>
+            <td><input type="time" name="times"> to <input type="time" name="end"></td>
+            
+          </tr>
+
+          <tr>
+          <td>Date:</td>
+          <td><input type="date" name="dates"></td>
+          </tr>
+
+          
+          
+        </table>
+        <button type="submit" style="background-color: blue; color:white; cursor: pointer; border-radius: 5px; ">Add</button>
+       
+      </form>
+          </div>
+    </div>
+    <div class="overlays hiddens"></div>
+          <table class="tables" cellspacing="5" border="2" style="margin-top: 50px; margin-left: auto; margin-right: auto;">
+          <tr>
+          <th><p style="margin-left: 20px;">Name</p></th>
+          <th><p style="margin-left: 20px;">Last Name</p></th>
+          <th><p style="margin-left: 20px;">Roll No.</p></th> 
+          <th><p style="margin-left: 20px;">Subject Name</p></th>
+          <th><p style="margin-left: 20px;">Department</p></th>
+          <th><p style="margin-left: 20px;">Semester</p></th>
+          <th><p style="margin-left: 20px;">Year</p></th>
+          <th><p style="margin-left: 20px;">Action</p></th>
 
           </tr>
           <?php
@@ -124,15 +173,14 @@ $dbsem=$row['sem'];
               // output data of each row
               while($row1 = mysqli_fetch_assoc($result)) {
               ?>
-                        <td><?php echo $dbnames=$row1['s_name']?></td>
-                        <td><?php echo $dblnames=$row1['s_lname']?></td>
-                        <td><?php echo $dbrnos=$row1['s_rno'];
-                        $_SESSION['rnos']=$dbrnos;?></td>
-                        <td><?php echo $dbsubs=$row1['sub']?></td>
-                        <td><?php echo $dbdepts=$row1['dept']?></td>
-                        <td><?php echo $dbsems=$row1['sem']?></td>
-                        <td><?php echo $dbyears=$row1['s_year']?></td>
-                        <td><button type="submit" name="submit"  class="delete_btn" id=<?php echo $row1['s_rno']?>>Delete</button> </td>
+                        <td><p style="margin-left: 20px;"><?php echo $dbnames=$row1['s_name']?></p></td>
+                        <td><p style="margin-left: 20px;"><?php echo $dblnames=$row1['s_lname']?></p></td>
+                        <td><p style="margin-left: 20px;"><?php echo $dbrnos=$row1['s_rno'];?></p></td>
+                        <td><p style="margin-left: 20px;"><?php echo $dbsubs=$row1['sub']?></p></td>
+                        <td><p style="margin-left: 20px;"><?php echo $dbdepts=$row1['dept']?></p></td>
+                        <td><p style="margin-left: 20px;"><?php echo $dbsems=$row1['sem']?></p></td>
+                        <td><p style="margin-left: 20px;"><?php echo $dbyears=$row1['s_year']?></p></td>
+                        <td><p style="margin-left: 20px;"><button style="background-color: white; cursor: pointer; font-weight:500; color: red;" type="submit" name="submit"  class="delete_btn" id=<?php echo $row1['s_rno']?>>Delete</button></p> </td>
                       </tr>
             <?php  
               }
@@ -150,5 +198,6 @@ $dbsem=$row['sem'];
     
 
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

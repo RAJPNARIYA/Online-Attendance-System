@@ -49,7 +49,7 @@ function checkInput($input) {
 if(isset($_POST["Submit"])) {
 $con = mysqli_connect("localhost","wt","wt","wt");
     if(mysqli_connect_errno()){
-        echo "Failed to connect to MySql:" .mysqli_error();
+        echo "Failed to connect to MySql:";
     }
     $newpwd=md5($_POST['password']);
     $query="INSERT INTO teacher(t_name,t_lname,t_email,t_pwd) VALUES ('$_POST[name]','$_POST[lname]','$_POST[email]','$newpwd')";

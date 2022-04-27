@@ -1,3 +1,19 @@
+<?php
+if(isset($_POST['submit'])){
+ $con = mysqli_connect("localhost","wt","wt","wt");
+ if(mysqli_connect_errno()){
+     echo "Failed to connect to MySql:";
+ }
+ $query="INSERT INTO feedback(uname,email,phone,msg) VALUES ('$_POST[name]','$_POST[u_email]','$_POST[u_phone]','$_POST[message]')";
+ if(mysqli_query($con,$query)){
+     echo "<h5>Query submited successfully.</h5>";
+ }else{
+     echo "Faild";
+ }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,7 +101,7 @@
         <div class="card-body">
           <h1 class="card-title">Query Form</h1>
           <p class="card-text">
-            <form>
+            <form method="POST" name="form">
               <div class="form-group">
                   <label for="exampleFormControlInput1">User Name</label>
                   <input
@@ -93,6 +109,7 @@
                   class="form-control"
                   id="exampleFormControlInput1"
                   placeholder="name"
+                  name="name"
                   />
               </div>
               <div class="form-group">
@@ -102,6 +119,7 @@
                   class="form-control"
                   id="exampleFormControlInput1"
                   placeholder="name@example.com"
+                  name="u_email"
                   />
               </div>
               <div class="form-group">
@@ -111,6 +129,7 @@
                   class="form-control"
                   id="exampleFormControlInput1"
                   placeholder="phone"
+                  name="u_phone"
                   />
               </div>
         
@@ -120,9 +139,10 @@
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
+                  name="message"
                   ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              <input type="submit" name="submit" class="btn btn-primary btn-lg"/>
             </form>
           </p>
           
